@@ -110,12 +110,24 @@ if stock_symbol:
     st.subheader("AI Investment Insight")
 
     prompt = f"""
-    Analyze stock {stock_symbol}.
+You are a financial AI assistant.
 
-    Market sentiment is {sentiment}.
+Analyze the current stock performance of {stock_symbol} based on recent market trends.
 
-    Give short professional investment insight.
-    """
+Current market sentiment: {sentiment}
+
+Give:
+1. Short-term outlook
+2. Long-term outlook
+3. Investment risk
+4. Final recommendation
+
+IMPORTANT:
+- Do not mention old years like 2023 or outdated information.
+- Focus only on current and recent market conditions.
+- Keep the response professional and concise.
+"""
+
 
     response = client.chat.completions.create(
         model="gpt-4o-mini",
