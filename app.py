@@ -38,6 +38,11 @@ if stock_symbol:
     st.subheader("Stock Data")
 
     st.write(stock_data.tail())
+    
+    if stock_data.empty:
+        st.error("No stock data found.")
+        st.stop()
+     
 
     # Stock Metrics
     st.subheader("Stock Metrics")
